@@ -7,6 +7,10 @@ export ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="matt"
 
+# Allow additional awesomeness once a day.
+function quote() { wget -q -O - http://www.quotationspage.com/data/1mqotd.js | grep "tqpQuote" | sed 's/.*\\.>//g' | sed 's/\(.*\)<.*/\1/g' }
+alias 'echo=unalias echo; builtin echo "${UNDERLINE_ON}${TEXT_RED}quote of the day:${UNDERLINE_OFF} ${TEXT_WHITE}$(quote)${RESET_FORMATTING}"; builtin echo'
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
